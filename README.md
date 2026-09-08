@@ -97,8 +97,15 @@ python3 -m http.server 8080
 
 ## النشر
 
-سير العمل `.github/workflows/deploy-pages.yml` ينشر تلقائياً عند كل دفع إلى `main`،
-ويفعّل GitHub Pages من تلقائه في أول تشغيل. لا يحتاج أي ضبط يدوي.
+سير العمل `.github/workflows/deploy-pages.yml` ينشر تلقائياً عند كل دفع إلى `main`.
+
+**خطوة لمرة واحدة قبل أول نشر:** فعّل Pages من
+**Settings ← Pages ← Source: GitHub Actions**. لا يمكن أتمتة هذه الخطوة: إنشاء موقع
+Pages عبر الـ API يتطلّب صلاحية `admin` على المستودع، و `GITHUB_TOKEN` الخاص بسير
+العمل سقفه `write` ولا يبلغها — لذلك يفشل `enablement: true` بـ
+`Resource not accessible by integration` ما لم تكن Pages مفعّلة أصلاً.
+
+بعد التفعيل تعمل كل الدفعات التالية تلقائياً بلا تدخّل.
 
 ---
 

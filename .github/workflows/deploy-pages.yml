@@ -27,12 +27,11 @@ jobs:
       - name: جلب الشيفرة
         uses: actions/checkout@v4
 
-      # enablement: true يفعّل GitHub Pages تلقائياً في أول تشغيل،
-      # فلا حاجة لتفعيلها يدوياً من إعدادات المستودع.
+      # تتطلّب أن تكون Pages مفعّلة مسبقاً من Settings ← Pages ← Source: GitHub Actions.
+      # لا يمكن أتمتة التفعيل: إنشاء موقع Pages عبر الـ API يحتاج صلاحية admin،
+      # و GITHUB_TOKEN سقفه write — لذا enablement: true يفشل قبل التفعيل اليدوي.
       - name: تهيئة GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       # الموقع ملفات ثابتة في جذر المستودع — بلا خطوة بناء.
       - name: رفع ملفات الموقع
