@@ -1,0 +1,26 @@
+# إعداد Netlify — يُقرأ تلقائياً عند ربط المستودع، فلا تحتاج ضبط أي حقل يدوياً.
+# الموقع ملفات ثابتة في جذر المستودع: بلا خطوة بناء وبلا تبعيات.
+
+[build]
+  publish = "."
+  command = ""
+
+# الأصول تحمل بصمة المحتوى في اسمها؟ لا — لذلك تخزين طويل مع إعادة تحقّق
+# عند تغيّر الملف. index.html لا يُخزَّن حتى يظهر أي تحديث فوراً.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ترويسات أمان أساسية لموقع ثابت لا يجمع أي بيانات.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"

@@ -8,7 +8,7 @@
 الموقع **HTML و CSS و JavaScript خام** — بدون أدوات بناء ولا تبعيات. افتح
 `index.html` في المتصفّح وستعمل الصفحة مباشرة.
 
-**العنوان المباشر:** https://najm8693-hash.github.io/albasha-market/
+**العنوان المباشر:** https://storied-alpaca-da502d.netlify.app
 
 ---
 
@@ -97,15 +97,19 @@ python3 -m http.server 8080
 
 ## النشر
 
-سير العمل `.github/workflows/deploy-pages.yml` ينشر تلقائياً عند كل دفع إلى `main`.
+**الاستضافة الحالية: Netlify.** ملف `netlify.toml` في الجذر يحمل كل الإعدادات
+(مجلد النشر `.` بلا أمر بناء)، فيُقرأ تلقائياً عند ربط المستودع ولا يحتاج ضبطاً يدوياً.
+بعد الربط، كل دفع إلى `main` ينشر نسخة جديدة خلال ثوانٍ.
 
-**خطوة لمرة واحدة قبل أول نشر:** فعّل Pages من
-**Settings ← Pages ← Source: GitHub Actions**. لا يمكن أتمتة هذه الخطوة: إنشاء موقع
-Pages عبر الـ API يتطلّب صلاحية `admin` على المستودع، و `GITHUB_TOKEN` الخاص بسير
-العمل سقفه `write` ولا يبلغها — لذلك يفشل `enablement: true` بـ
-`Resource not accessible by integration` ما لم تكن Pages مفعّلة أصلاً.
+### GitHub Pages (اختياري، معطّل حالياً)
 
-بعد التفعيل تعمل كل الدفعات التالية تلقائياً بلا تدخّل.
+`.github/workflows/deploy-pages.yml` موجود لكنه لا يعمل تلقائياً — `workflow_dispatch`
+فقط — حتى لا يفشل عند كل دفع. لتشغيله:
+
+1. فعّل Pages من **Settings ← Pages ← Source: GitHub Actions**. هذه الخطوة **لا يمكن
+   أتمتتها**: إنشاء موقع Pages عبر الـ API يتطلّب صلاحية `admin`، و `GITHUB_TOKEN` سقفه
+   `write` ولا يبلغها.
+2. شغّل السير يدوياً من تبويب **Actions**، أو أعد إليه محفّز `push` على `main`.
 
 ---
 

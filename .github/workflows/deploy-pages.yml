@@ -1,9 +1,10 @@
 name: نشر الموقع على GitHub Pages
 
+# الاستضافة الحالية Netlify (تنشر تلقائياً عند كل دفع)، فهذا السير معطّل عن
+# العمل التلقائي حتى لا يفشل عند كل دفع ما دامت Pages غير مفعّلة.
+# لاستخدامه: فعّل Pages من Settings ← Pages ← Source: GitHub Actions، ثم شغّله
+# يدوياً من تبويب Actions، أو أعد سطري push/branches أدناه.
 on:
-  push:
-    branches: [main]
-  # يسمح بتشغيل النشر يدوياً من تبويب Actions.
   workflow_dispatch:
 
 permissions:
