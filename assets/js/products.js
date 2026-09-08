@@ -21,8 +21,7 @@ window.PRODUCTS = [
     id: 'debt-swamp-ar',
     category: 'ebooks',
     url: 'https://payhip.com/b/N8Xdy',
-    // ضع السعر هنا (مثل 9) ليظهر على البطاقة بدل «شاهد السعر على Payhip».
-    price: null,
+    price: 5,
     image: '',
     badge: { ar: 'عربي', en: 'Arabic' },
     name: {
@@ -39,7 +38,7 @@ window.PRODUCTS = [
     id: 'debt-swamp-en',
     category: 'ebooks',
     url: 'https://payhip.com/b/3gp9w',
-    price: null,
+    price: 5,
     image: '',
     badge: { ar: 'إنجليزي', en: 'English' },
     name: {
