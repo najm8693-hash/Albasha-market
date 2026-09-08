@@ -1,0 +1,45 @@
+name: نشر الموقع على GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # يسمح بتشغيل النشر يدوياً من تبويب Actions.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# نشر واحد في كل مرة، بلا إلغاء نشرة جارية.
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: نشر
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: جلب الشيفرة
+        uses: actions/checkout@v4
+
+      # enablement: true يفعّل GitHub Pages تلقائياً في أول تشغيل،
+      # فلا حاجة لتفعيلها يدوياً من إعدادات المستودع.
+      - name: تهيئة GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # الموقع ملفات ثابتة في جذر المستودع — بلا خطوة بناء.
+      - name: رفع ملفات الموقع
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: النشر
+        id: deployment
+        uses: actions/deploy-pages@v4
