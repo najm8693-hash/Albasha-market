@@ -15,7 +15,8 @@ window.SITE_CONFIG = {
    */
   contact: {
     email: 'najm8693@gmail.com',
-    whatsapp: '',
+    // الجزائر ‎+213 — الرقم المحلي 0673232932 بعد حذف الصفر البادئ.
+    whatsapp: '213673232932',
     instagram: '',
     telegram: '',
     x: '',

@@ -330,15 +330,17 @@ ol {
   place-items: center;
   width: 38px;
   height: 38px;
-  border-radius: 12px;
-  background: linear-gradient(140deg, var(--accent), color-mix(in srgb, var(--accent) 60%, #000 20%));
-  color: var(--on-accent);
+  border-radius: 11px;
+  /* شعار المتجر أبيض وأحمر على أسود، فتبقى الخلفية داكنة في الوضعين */
+  background: #0c0c0c;
+  overflow: hidden;
   flex: none;
 }
 
-.brand-mark svg {
-  width: 22px;
-  height: 22px;
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .brand-text {
