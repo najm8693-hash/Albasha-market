@@ -81,9 +81,12 @@
     return cat ? local(cat) : id;
   }
 
+  /** يُرجع نصاً فارغاً حين لا سعر معلن — عندها لا تُعرض خانة السعر إطلاقاً. */
   function formatPrice(product) {
+    if (product.price === null || product.price === undefined || product.price === '') return '';
     var value = Number(product.price);
-    if (!isFinite(value) || value <= 0) return t('free');
+    if (!isFinite(value)) return '';
+    if (value <= 0) return t('free');
     var currency = product.currency || CONFIG.currency || 'USD';
     /* السعر يُنسَّق بالإنجليزية في اللغتين ($9) ويُعزَل اتجاهه في CSS: التنسيق
        العربي لعملة مثل USD يُنتج «9 US$» فيقلبها محرّك الاتجاه ويصعب قراءتها. */
@@ -167,6 +170,13 @@
         return p.category === cat.id;
       });
     });
+
+    /* فئة واحدة لا تحتاج تصفية — نخفي الشريط بدل عرض زرّين بلا فائدة. */
+    wrap.hidden = used.length < 2;
+    if (wrap.hidden) {
+      state.category = 'all';
+      return;
+    }
 
     var entries = [{ id: 'all', label: t('allCategories') }].concat(
       used.map(function (cat) {
@@ -252,10 +262,13 @@
     var foot = document.createElement('div');
     foot.className = 'product-foot';
 
-    var price = document.createElement('span');
-    price.className = 'price';
-    price.textContent = formatPrice(product);
-    foot.appendChild(price);
+    var priceText = formatPrice(product);
+    if (priceText) {
+      var price = document.createElement('span');
+      price.className = 'price';
+      price.textContent = priceText;
+      foot.appendChild(price);
+    }
 
     var actions = document.createElement('div');
     actions.className = 'product-actions';
@@ -324,7 +337,9 @@
     document.getElementById('dialog-category').textContent = categoryName(product.category);
     document.getElementById('dialog-title').textContent = local(product.name);
     document.getElementById('dialog-desc').textContent = local(product.desc);
-    document.getElementById('dialog-price').textContent = formatPrice(product);
+    var dialogPrice = document.getElementById('dialog-price');
+    dialogPrice.textContent = formatPrice(product);
+    dialogPrice.hidden = !dialogPrice.textContent;
 
     var list = document.getElementById('dialog-includes');
     list.textContent = '';

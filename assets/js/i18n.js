@@ -22,7 +22,7 @@ window.I18N = {
     heroEyebrow: 'متجر رقمي · تحميل فوري',
     heroTitle: 'منتجات رقمية تُختصر عليك الطريق',
     heroLead:
-      'كتب إلكترونية وقوالب وتصاميم جاهزة للاستخدام. تدفع مرة واحدة، وتصلك الملفات فوراً على بريدك — بلا انتظار وبلا شحن.',
+      'كتب إلكترونية بتجربة عملية، متاحة بالعربية والإنجليزية. تدفع مرة واحدة، ويصلك الملف فوراً على بريدك — بلا انتظار وبلا شحن.',
     browseProducts: 'تصفّح المنتجات',
     openPayhip: 'افتح المتجر على Payhip',
     trustSecure: 'دفع آمن عبر Payhip',
@@ -37,7 +37,7 @@ window.I18N = {
     feat2Title: 'دفع موثوق',
     feat2Body: 'عملية الدفع تتم على منصة Payhip، فلا تمر بياناتك البنكية عبر هذا الموقع إطلاقاً.',
     feat3Title: 'جودة مُراجعة',
-    feat3Body: 'كل ملف يُراجع قبل النشر: تنسيق نظيف، ملفات مفتوحة للتعديل، وتعليمات استخدام واضحة.',
+    feat3Body: 'كل ملف يُراجع قبل النشر: تنسيق نظيف، وقراءة مريحة على الهاتف والحاسوب.',
     feat4Title: 'دعم بالعربية',
     feat4Body: 'عندك سؤال قبل الشراء أو مشكلة في التحميل؟ راسلنا وسنرد عليك.',
 
@@ -123,7 +123,7 @@ window.I18N = {
     heroEyebrow: 'Digital store · Instant download',
     heroTitle: 'Digital products that save you the hard part',
     heroLead:
-      'Ebooks, templates and designs ready to use. Pay once and the files land in your inbox straight away — no waiting, no shipping.',
+      'Practical ebooks, available in Arabic and English. Pay once and the file lands in your inbox straight away — no waiting, no shipping.',
     browseProducts: 'Browse products',
     openPayhip: 'Open the store on Payhip',
     trustSecure: 'Secure checkout on Payhip',
@@ -138,7 +138,7 @@ window.I18N = {
     feat2Title: 'Trusted checkout',
     feat2Body: 'Payment happens on Payhip, so your card details never pass through this website.',
     feat3Title: 'Reviewed quality',
-    feat3Body: 'Every file is checked before release: clean formatting, editable sources, clear instructions.',
+    feat3Body: 'Every file is checked before release: clean formatting, comfortable reading on phone and desktop.',
     feat4Title: 'Arabic & English support',
     feat4Body: 'A question before buying, or trouble downloading? Message us and we will answer.',
 
