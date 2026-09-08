@@ -14,7 +14,7 @@ window.SITE_CONFIG = {
    * whatsapp: الرقم بالصيغة الدولية بدون + أو مسافات، مثل 9647701234567
    */
   contact: {
-    email: '',
+    email: 'najm8693@gmail.com',
     whatsapp: '',
     instagram: '',
     telegram: '',
